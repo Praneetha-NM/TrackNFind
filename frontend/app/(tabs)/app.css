@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  z-index:1000;
 }
 
 label {
@@ -37,6 +38,7 @@ form {
   flex-direction: column;
   justify-content: space-between;
   color: rgb(88, 87, 87);
+  z-index:1000;
 }
 
 input {
@@ -75,6 +77,7 @@ textarea {
   position: absolute;
   top: 10px;
   right: 10px;
+  z-index: 1000;
 }
 
 .button {
@@ -101,4 +104,13 @@ textarea {
 
 .register{
   background-color: slateblue;
+}
+.leaflet-container {
+  height: 400px;
+  width: 100%;
+  z-index: 0
+}
+#map {
+  height: 100vh;
+  width: 100%;
 }

@@ -6,28 +6,35 @@ const PinSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    title: {
+    item: {
       type: String,
       required: true,
       min: 3,
       max: 60,
+    },
+    category: {
+      type: String,
+      required: true,
+      enum: ["Electronics", "Wallets", "Jewelry", "Keys", "Documents", "Others"],
     },
     desc: {
       type: String,
       required: true,
       min: 3,
     },
-    rating: {
-      type: Number,
+    contactno: {
+      type: String,
       required: true,
-      min: 0,
-      max: 5,
     },
-    long: {
-      type: Number,
-      required: true,
+    imgurl: {
+      type: String,
+      default: null,
     },
     lat: {
+      type: Number,
+      required: true,
+    },
+    lng: {
       type: Number,
       required: true,
     },
