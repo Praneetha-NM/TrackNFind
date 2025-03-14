@@ -8,10 +8,11 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 type LoginProps = {
   setShowLogin: (show: boolean) => void;
-  setCurrentUsername: (username: string) => void;// consider using AsyncStorage in RN
+  setCurrentUsername: (username: string) => void;
+  setIsAuthenticated: (isAuthenticated: boolean) => void;// consider using AsyncStorage in RN
 };
 
-export default function Login({ setShowLogin, setCurrentUsername}: LoginProps) {
+export default function Login({ setShowLogin, setCurrentUsername,setIsAuthenticated}: LoginProps) {
   const [error, setError] = useState<boolean>(false);
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -24,9 +25,10 @@ export default function Login({ setShowLogin, setCurrentUsername}: LoginProps) {
     };
   
     try {
-      const res = await axios.post("http://10.52.16.76:8800/api/users/login", user);
+      const res = await axios.post("http://192.168.8.76:8800/api/users/login", user);
       console.log("Login successful:", res.data);  // Log successful response
       setCurrentUsername(res.data.username);
+      setIsAuthenticated(true);
       await AsyncStorage.setItem("user", res.data.username);
       setSuccess(true);
       setShowLogin(false);
@@ -87,9 +89,9 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: "white",
     position: "absolute",
-    top: 400,
+    top: 255,
     bottom: 0,
-    left: 100,
+    left: 35,
     right: 0,
     alignSelf: "center",
     justifyContent: "space-between",

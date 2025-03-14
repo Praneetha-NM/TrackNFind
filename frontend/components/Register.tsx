@@ -18,7 +18,7 @@ export default function Register({ setShowRegister }: RegisterProps) {
     const newUser = { username, email, password };
     console.log("New user data:", newUser);
     try {
-      await axios.post("http://10.52.16.76:8800/api/users/register", newUser);
+      await axios.post("http://192.168.8.76:8800/api/users/register", newUser);
       
       setError(false);
       setSuccess(true);
@@ -84,9 +84,9 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: "white",
     position: "absolute",
-    top: 400,
+    top: 255,
     bottom: 0,
-    left: 100,
+    left: 35,
     right: 0,
     alignSelf: "center",
     justifyContent: "space-between",
